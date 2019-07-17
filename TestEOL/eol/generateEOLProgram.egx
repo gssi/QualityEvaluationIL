@@ -1,0 +1,7 @@
+rule GenEOLPRogram 
+  transform qecosystem : QualityEcosystemDef {
+  
+  template : "generateEOLProgram.egl"
+  
+  target : "gen/test.eol"
+}

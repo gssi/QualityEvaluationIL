@@ -1,0 +1,45 @@
+[%
+var tobeimported=new Set;
+for (eval in qecosystem.evaluations.calculatedBy.collect(m|m.calculatedMetrics.metric.library)) { 
+	tobeimported+=(eval);
+}
+%] 
+[%for (i in tobeimported) { %]
+import "[%=i%]";
+[%}%]
+var emfTool : new Native("org.eclipse.epsilon.emc.emf.tools.EmfTool");
+
+
+var  weight_i_produced=1.0;
+var  weight_a_set=1.0;
+var  weight_r_set=0.5;
+[%for (eval in qecosystem.evaluations) { %]
+"[%=eval.qa.name%] for [%=eval.subject.name%]".println();
+var [%=eval.qa.name.toUpperCase().trim()%]_[%=eval.subject.name%]=	 
+	[%
+	
+	var op;
+	switch (eval.calculatedBy.calculatedBy.withoperation.name) {
+		case "SUM" : op="+"; 
+		case "PROD" : op="*"; 
+		case "SUB" :op="-"; 
+		case "DIV" : op="/"; 
+		case "AVG" : "?".println();
+		default : "other operation please add it".println(); }
+	
+	%]
+	([%for (cm in eval.calculatedBy.calculatedMetrics) { %]
+	
+		[%=cm.metric.metricProvider%](
+		[%for (par in cm.parameters) { %]
+			[%=par.name%][%if (hasMore){%],[%}%]
+		[%}%]
+		)
+		[%if (hasMore){%]
+		[%=op%]
+		[%}%]
+	[%}%]).println();
+
+
+[%}%]
+

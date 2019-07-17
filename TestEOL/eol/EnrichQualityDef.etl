@@ -1,0 +1,28 @@
+rule QualityEcosystemDef
+transform e : QualityEcosystemModel!QualityEcosystemDef
+  to e1 : QualityEcosystemModelOut!QualityEcosystemDef {
+ 
+}
+
+rule QualityEval
+transform qeval: QualityEcosystemModel!QualityEval
+to qevalout: QualityEcosystemModelOut!QualityEval{
+	qevalout.def=qeval.def.equivalent();
+	qevalout.qa=qeval.qa;
+	qevalout.subject=qeval.subject;
+	if(qeval.qa.calculatedBy.isDefined()){
+		var calculated_op=new QualityEcosystemModelOut!CalculatedOperation;
+		calculated_op.eval=qevalout;
+		calculated_op.calculatedBy=qeval.qa.calculatedBy;
+		qeval.calculatedBy=calculated_op.equivalent();
+		for (metric in qeval.qa.calculatedBy.metrics) { 
+			var calculatedMetric=new QualityEcosystemModelOut!CalculatedMetric;
+			calculatedMetric.metric=metric;
+			calculatedMetric.owner=calculated_op;
+		}
+	}
+
+}
+
+
+

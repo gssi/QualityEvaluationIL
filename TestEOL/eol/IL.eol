@@ -1,0 +1,246 @@
+
+
+operation  getNumInstances( classes: List, _model: Any)  : Integer{
+var numinstances=0;
+
+for (c in classes) { 
+	numinstances+=_model.getAllOfKind(c.name).size();
+}
+return numinstances;
+}
+
+operation  getFilledAttrModel(classes: List, _model: Any): Integer{
+var numattr_filled=0;
+for (c in classes) { 
+	for (i in _model.getAllOfKind(c.name)) { 
+		for (a in c.eAttributes) { 
+			if ( i.eGet(i.eClass().getEStructuralFeature(a.name)).isDefined()) {
+				numattr_filled++;
+			}
+		}
+	}
+}
+return numattr_filled;
+}
+
+
+operation  getUnFilledAttrModel(classes: List, _model: Any): Integer{
+var numattr_notfilled=0;
+for (c in classes) { 
+	for (i in _model.getAllOfKind(c.name)) { 
+		for (a in c.eAttributes) { 
+			if ( i.eGet(i.eClass().getEStructuralFeature(a.name)).isUndefined()) {
+				numattr_notfilled++;
+			}
+		}
+	}
+}
+return numattr_notfilled;
+}
+
+operation  getFilledRefsModel(classes: List, _model: Any): Integer{
+var num_filled=0;
+for (c in classes) { 
+	for (i in _model.getAllOfKind(c.name)) { 
+		for (r in c.eReferences) { 
+			if ( i.eGet(i.eClass().getEStructuralFeature(r.name)).size>0) {
+				num_filled+=i.eGet(i.eClass().getEStructuralFeature(r.name)).size;
+				//i.eGet(i.eClass().getEStructuralFeature(r.name)).size.println();
+			}
+		}
+	}
+}
+return num_filled;
+}
+
+
+operation  getUnFilledRefsModel(classes: List, _model: Any): Integer{
+var num_notfilled=0;
+for (c in classes) { 
+	for (i in _model.getAllOfKind(c.name)) { 
+		for (r in c.eReferences) { 
+			if ( i.eGet(i.eClass().getEStructuralFeature(r.name)).size=0) {
+			//i.eGet(i.eClass().getEStructuralFeature(r.name)).println(r.name);
+				num_notfilled++;
+			}
+		}
+	}
+}
+return num_notfilled;
+}
+
+operation getIInfoProd(_trace: Any) : Real{
+var I=0;
+var targets=_trace.getAllOfKind("TraceLink").select(l|l.targetElements.size>1);
+for (link in targets) { 
+	for (t in link.targetElements) { 
+		I=I+(weight_i_produced/targets.size);
+	}
+	
+}
+var targets=_trace.getAllOfKind("TraceLink").select(l|l.targetElements.size=1);
+for (link in targets) { 
+
+	I=I+(weight_i_produced);
+	
+}
+return I;
+}
+
+operation getIInfoLoss(_trace: Any, inmodel: Any) : Real{
+//get all instances in the input model not cited in the trace
+var I=0;
+var mapped_instances=_trace.getAllOfKind("TraceLink").sourceElements.collect(o|o.object).flatten();
+for (c in sourceMM!EClass.all) { 
+
+	for (i in inmodel.getAllOfKind(c.name)) {
+		if(mapped_instances->select(obj|emfTool.ecoreUtil.equals(obj,i)).size()=0){
+		
+		
+		I=I+weight_i_produced;
+	
+	}
+		
+		
+		
+	}
+	
+}
+	return I;
+}
+
+
+
+operation getAInfoProd(_trace: Any,trafo: Any) :Real{
+var I=0.0;
+for (trace in _trace.getAllOfKind("TraceLink").targetElements) { 
+	for (i in trace.object) { 
+		for (a in i.eClass().eAttributes) { 
+			if(i.eGet(i.eClass().getEStructuralFeature(a.name)).isDefined()){
+			//if the attribute value is set then i check if there is an existing binding in the trafo for that rule
+				for (r in trafo.getAllOfKind("Rule").select(r|r.name=trace.targetOf.rule.first().rule)) { 
+				
+					for (op in r.applier.code) { 
+						if(op.opcode==EMFTVMMM!Opcode#SET and op.fieldname==a.name){
+						//binding exists in rule
+						//op.fieldname.println();
+							if(r.applier.code.exists(get|get.opcode==EMFTVMMM!Opcode#GET)){
+								I=I+(weight_a_set);
+							}
+						}
+					}
+					
+				}
+				
+				//trace.targetOf.rule.first().println();
+			}
+		}
+		
+	}
+	
+}
+
+return I;
+}
+
+operation getAInfoLoss( _trace:Any,inmodel: Any, trafo: Any) : Real{
+var I=0;
+
+var sourcetracelinks=_trace.getAllOfKind("TraceLink").sourceElements;
+	for (c in sourceMM!EClass.all) { 
+		for (i in inmodel.getAllOfKind(c.name)) {
+			//for all the instances in the in model mapped with the transformation
+		for (tr in sourcetracelinks->select(l|l.object->select(o|emfTool.ecoreUtil.equals(o,i)).size()>0)) { 
+				var mapped_rule=tr.sourceOf.rule;
+				//check if the corresponding rule has a binding
+				for (srule in trafo.getAllOfKind("Rule").select(r|mapped_rule->collect(n|n.rule).contains(r.name))) {
+				var attrs=c.eAttributes;
+				
+					for (a in attrs) { 
+						if(i.eGet(i.eClass().getEStructuralFeature(a.name)).isDefined() and not srule.applier.isDefined()){
+						//VALUE ATTRIBUTE SET IN INPUT MODEL
+							I=I+(weight_a_set);
+						
+						}else if(i.eGet(i.eClass().getEStructuralFeature(a.name)).isDefined() and  srule.applier.isDefined()){
+							for (cb in srule.applier.code) { 
+							if(cb.opcode==EMFTVMMM!Opcode#SET and srule.applier.code->select(g|g.opcode==EMFTVMMM!Opcode#GET and g.fieldname==a.name).size()=0){
+								I=I+(weight_a_set);
+								}
+							}
+						}
+					}
+						
+					
+					
+				}	
+			}
+		}
+	}
+
+return I;
+}
+
+operation getRInfoProd(_trace: Any,trafo: Any) :Real{
+var I=0.0;
+for (trace in _trace.getAllOfKind("TraceLink").targetElements) { 
+	for (i in trace.object) { 
+		for (a in i.eClass().eReferences) { 
+			if(i.eGet(i.eClass().getEStructuralFeature(a.name)).isDefined()){
+			//if the attribute value is set then i check if there is an existing binding in the trafo for that rule
+				for (r in trafo.getAllOfKind("Rule").select(r|r.name=trace.targetOf.rule.first().rule)) { 
+					for (op in r.applier.code) { 
+						if(op.opcode==EMFTVMMM!Opcode#SET and op.fieldname==a.name){
+						//binding exists in rule
+						//op.fieldname.println();
+						I=I+(weight_r_set);
+						}
+					}
+					
+				}
+				
+				//trace.targetOf.rule.first().println();
+			}
+		}
+		
+	}
+	
+}
+
+return I;
+}
+
+operation getRInfoLoss( _trace:Any,inmodel: Any, trafo: Any) : Real{
+var I=0;
+var sourcetracelinks=_trace.getAllOfKind("TraceLink").sourceElements;
+	for (c in sourceMM!EClass.all) { 
+		for (i in inmodel.getAllOfKind(c.name)) {
+			//for all the instances in the in model mapped with the transformation
+		for (tr in sourcetracelinks->select(l|l.object->select(o|emfTool.ecoreUtil.equals(o,i)).size()>0)) { 
+				var mapped_rule=tr.sourceOf.rule;
+				//check if the corresponding rule has a binding
+				for (srule in trafo.getAllOfKind("Rule").select(r|mapped_rule->collect(n|n.rule).contains(r.name))) {
+				var refs=c.eReferences;
+				
+					for (r in refs) { 
+						if(i.eGet(i.eClass().getEStructuralFeature(r.name)).isDefined() and not srule.applier.isDefined()){
+						//VALUE ATTRIBUTE SET IN INPUT MODEL
+							I=I+(weight_r_set);
+						
+						}else if(i.eGet(i.eClass().getEStructuralFeature(r.name)).isDefined() and  srule.applier.isDefined()){
+							for (cb in srule.applier.code) { 
+							if(cb.opcode==EMFTVMMM!Opcode#SET and srule.applier.code->select(g|g.opcode==EMFTVMMM!Opcode#GET and g.fieldname==r.name).size()=0){
+								I=I+(weight_r_set);
+								}
+							}
+						}
+					}
+						
+					
+					
+				}	
+			}
+		}
+	}
+
+return I;
+}

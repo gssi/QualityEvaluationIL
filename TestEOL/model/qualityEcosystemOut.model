@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ASCII"?>
+<qualityecosystem:QualityEcosystemDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdeecosystem="http://cs.gssi.it/mdeecosystem" xmlns:qualityecosystem="http://cs.gssi.it/qualityecosystem" xmi:id="_22Z3UKSnEemyCdVvxoRUqw" qualityDefModelPath="" name="">
+  <evaluations xmi:id="_22Z3UaSnEemyCdVvxoRUqw">
+    <qa href="qualityDef.model#_WnY80KMgEemyCdVvxoRUqw"/>
+    <subject xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_D1w1kKDKEemyCdVvxoRUqw"/>
+    <calculatedBy xmi:id="_22Z3UqSnEemyCdVvxoRUqw">
+      <calculatedBy href="qualityDef.model#_Y4A7oKMgEemyCdVvxoRUqw"/>
+      <calculatedMetrics xmi:id="_22Z3U6SnEemyCdVvxoRUqw">
+        <metric href="qualityDef.model#_hm4JMKMgEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_D1w1kKDKEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:Model" href="ecosystem.model#_z-SmkKDJEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:Transformation" href="ecosystem.model#_3FXFMKDJEemyCdVvxoRUqw"/>
+      </calculatedMetrics>
+      <calculatedMetrics xmi:id="_22Z3VKSnEemyCdVvxoRUqw">
+        <metric href="qualityDef.model#_Zo7bMKMgEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_D1w1kKDKEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:Model" href="ecosystem.model#_z-SmkKDJEemyCdVvxoRUqw"/>
+      </calculatedMetrics>
+      <calculatedMetrics xmi:id="_22Z3VaSnEemyCdVvxoRUqw">
+        <metric href="qualityDef.model#_lt0JYKMgEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_D1w1kKDKEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:Model" href="ecosystem.model#_z-SmkKDJEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:Transformation" href="ecosystem.model#_3FXFMKDJEemyCdVvxoRUqw"/>
+      </calculatedMetrics>
+    </calculatedBy>
+  </evaluations>
+  <evaluations xmi:id="_22Z3VqSnEemyCdVvxoRUqw">
+    <qa href="qualityDef.model#_6SxfEKR8EemyCdVvxoRUqw"/>
+    <subject xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_D1w1kKDKEemyCdVvxoRUqw"/>
+    <calculatedBy xmi:id="_22aeYKSnEemyCdVvxoRUqw">
+      <calculatedBy href="qualityDef.model#_74Xj4KR8EemyCdVvxoRUqw"/>
+      <calculatedMetrics xmi:id="_22aeYaSnEemyCdVvxoRUqw">
+        <metric href="qualityDef.model#_IBNlAKR9EemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_D1w1kKDKEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:Transformation" href="ecosystem.model#_3FXFMKDJEemyCdVvxoRUqw"/>
+      </calculatedMetrics>
+      <calculatedMetrics xmi:id="_22aeYqSnEemyCdVvxoRUqw">
+        <metric href="qualityDef.model#_9GlDcKR8EemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_D1w1kKDKEemyCdVvxoRUqw"/>
+      </calculatedMetrics>
+      <calculatedMetrics xmi:id="_22aeY6SnEemyCdVvxoRUqw">
+        <metric href="qualityDef.model#_K2aQgKR9EemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_D1w1kKDKEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:Transformation" href="ecosystem.model#_3FXFMKDJEemyCdVvxoRUqw"/>
+      </calculatedMetrics>
+    </calculatedBy>
+  </evaluations>
+  <evaluations xmi:id="_22aeZKSnEemyCdVvxoRUqw">
+    <qa href="qualityDef.model#_WnY80KMgEemyCdVvxoRUqw"/>
+    <subject xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_Inh7cqDKEemyCdVvxoRUqw"/>
+    <calculatedBy xmi:id="_22aeZaSnEemyCdVvxoRUqw">
+      <calculatedBy href="qualityDef.model#_Y4A7oKMgEemyCdVvxoRUqw"/>
+      <calculatedMetrics xmi:id="_22aeZqSnEemyCdVvxoRUqw">
+        <metric href="qualityDef.model#_hm4JMKMgEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_Inh7cqDKEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:Model" href="ecosystem.model#_z-SmkKDJEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:Transformation" href="ecosystem.model#_Inh7cKDKEemyCdVvxoRUqw"/>
+      </calculatedMetrics>
+      <calculatedMetrics xmi:id="_22aeZ6SnEemyCdVvxoRUqw">
+        <metric href="qualityDef.model#_Zo7bMKMgEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_Inh7cqDKEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:Model" href="ecosystem.model#_z-SmkKDJEemyCdVvxoRUqw"/>
+      </calculatedMetrics>
+      <calculatedMetrics xmi:id="_22aeaKSnEemyCdVvxoRUqw">
+        <metric href="qualityDef.model#_lt0JYKMgEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_Inh7cqDKEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:Model" href="ecosystem.model#_z-SmkKDJEemyCdVvxoRUqw"/>
+        <parameters xsi:type="mdeecosystem:Transformation" href="ecosystem.model#_Inh7cKDKEemyCdVvxoRUqw"/>
+      </calculatedMetrics>
+    </calculatedBy>
+  </evaluations>
+</qualityecosystem:QualityEcosystemDef>

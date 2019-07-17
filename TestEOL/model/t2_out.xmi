@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:targetMM="http://cs.gssi.it/targetMM">
+  <targetMM:ClientList>
+    <clients name="John Doe"/>
+    <clients name="Mariah Carey"/>
+  </targetMM:ClientList>
+  <targetMM:Subscription client="/0/@clients.0" type="YEAR"/>
+  <targetMM:Subscription client="/0/@clients.1" type="YEAR"/>
+</xmi:XMI>

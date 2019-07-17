@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modelink threeWay="true" forceExeedL="false" forceExeedM="false" forceExeedR="false">
+  <model path="[%=QualityEcosystemModel.qualityDefModelPath%].model" position="LEFT" />
+  <model path="[%=QualityEcosystemModel.name%]Out.model" position="MIDDLE" />
+  <model path="[%=QualityEcosystemModel.ecosystemModelPath%].model" position="RIGHT" />
+</modelink>

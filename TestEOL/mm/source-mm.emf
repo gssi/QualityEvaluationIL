@@ -1,0 +1,16 @@
+@namespace(uri="http://cs.gssi.it/sourceMM", prefix="sourceMM")
+package sourceMM;
+
+class PersonList{
+ val Person[*]	persons;
+ val Card[*] cards;
+}
+
+class Person{
+	attr String name;
+	ref Card[1] card;
+}
+
+class Card{
+	attr String uid;
+}

@@ -1,0 +1,40 @@
+@namespace(uri="http://cs.gssi.it/mdeecosystem", prefix="mdeecosystem")
+package MDEEcosystem;
+
+class MDEEcosystem{
+	val Artifact[*] artifacts;
+	
+	attr String author;
+}
+
+abstract class Artifact{
+	
+	attr String name;
+	
+}
+
+
+class Model extends Artifact{
+	
+	ref Metamodel[1] conformance;
+}
+
+class Metamodel extends Artifact{
+	attr String nsURI;
+	
+}
+
+class Transformation extends Artifact{
+	ref Metamodel[1] sourceMM;
+	ref Metamodel[1] targetMM;
+	ref Model[1] inmodel;
+	ref Model[1] outmodel;
+}
+
+class TraceModel extends Artifact{
+	ref Model[1] inmodel;
+	ref Model[1] outmodel;
+}
+
+
+

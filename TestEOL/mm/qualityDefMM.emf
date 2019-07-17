@@ -1,0 +1,38 @@
+@namespace(uri="http://cs.gssi.it/qualitymodel", prefix="qualitymodel")
+package QualityModel;
+
+class QualityModel{
+	val QualityAttribute[*] qualityattrs;
+	val Metric[*] metrics;
+	attr String author;
+}
+
+
+class Operation {
+	attr OpType withoperation;
+	ref Metric[*] metrics;
+	val Operation[*] nestedOps;
+}
+
+class QualityAttribute{
+attr	String name;
+val Operation[1] calculatedBy;
+
+}
+
+class Metric{
+	attr String name;
+	attr String metricProvider;
+	attr String library;
+	
+}
+
+
+
+enum OpType{
+	SUM=0;
+	PROD=1;
+	SUB=2;
+	DIV=3;
+	AVG=4;
+}

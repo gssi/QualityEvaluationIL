@@ -1,0 +1,7 @@
+rule GenModelink 
+  transform QualityEcosystemModel : QualityEcosystemDef {
+  
+  template : "generateModelink.egl"
+  
+  target : "gen/QualityEcosystemOut.modelink"
+}

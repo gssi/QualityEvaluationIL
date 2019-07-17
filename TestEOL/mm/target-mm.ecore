@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="targetMM" nsURI="http://cs.gssi.it/targetMM" nsPrefix="targetMM">
+  <eClassifiers xsi:type="ecore:EClass" name="ClientList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clients" upperBound="-1"
+        eType="#//Client" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subscriptions" upperBound="-1"
+        eType="#//Subscription" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="badges" upperBound="-1"
+        eType="#//Badge" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Client">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedBadge" upperBound="-1"
+        eType="#//Badge" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Badge">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Subscription">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="client" lowerBound="1"
+        eType="#//Client"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//SubscriptionType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SubscriptionType">
+    <eLiterals name="MONTH"/>
+    <eLiterals name="TRIMESTER" value="1"/>
+    <eLiterals name="SEMESTER" value="2"/>
+    <eLiterals name="YEAR" value="3"/>
+  </eClassifiers>
+</ecore:EPackage>

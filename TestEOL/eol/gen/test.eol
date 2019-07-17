@@ -1,0 +1,56 @@
+import "../IL.eol";
+var emfTool : new Native("org.eclipse.epsilon.emc.emf.tools.EmfTool");
+
+
+var  weight_i_produced=1.0;
+var  weight_a_set=1.0;
+var  weight_r_set=0.5;
+" InformationLoss for traceT1".println();
+var INFORMATIONLOSS_traceT1=	 
+	(	
+		getAInfoLoss(
+			traceT1,			inmodel,			T1		)
+		+
+	
+		getIInfoLoss(
+			traceT1,			inmodel		)
+		+
+	
+		getRInfoLoss(
+			traceT1,			inmodel,			T1		)
+).println();
+
+
+"InformationPreserved for traceT1".println();
+var INFORMATIONPRESERVED_traceT1=	 
+	(	
+		getAInfoProd(
+			traceT1,			T1		)
+		+
+	
+		getIInfoProd(
+			traceT1		)
+		+
+	
+		getRInfoProd(
+			traceT1,			T1		)
+).println();
+
+
+" InformationLoss for traceT2".println();
+var INFORMATIONLOSS_traceT2=	 
+	(	
+		getAInfoLoss(
+			traceT2,			inmodel,			T2		)
+		+
+	
+		getIInfoLoss(
+			traceT2,			inmodel		)
+		+
+	
+		getRInfoLoss(
+			traceT2,			inmodel,			T2		)
+).println();
+
+
+

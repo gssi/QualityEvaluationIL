@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<qualityecosystem:QualityEcosystemDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdeecosystem="http://cs.gssi.it/mdeecosystem" xmlns:qualityecosystem="http://cs.gssi.it/qualityecosystem" xmi:id="_ySUWEKPAEemyCdVvxoRUqw" qualityDefModelPath="/TestEOL/model/ecosystem" name="" ecosystemModelPath="/TestEOL/model/qualityDef">
+  <evaluations xmi:id="_zbAccKPAEemyCdVvxoRUqw">
+    <qa href="qualityDef.model#_WnY80KMgEemyCdVvxoRUqw"/>
+    <subject xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_D1w1kKDKEemyCdVvxoRUqw"/>
+  </evaluations>
+  <evaluations xmi:id="_RLs-oKR9EemyCdVvxoRUqw">
+    <qa href="qualityDef.model#_6SxfEKR8EemyCdVvxoRUqw"/>
+    <subject xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_D1w1kKDKEemyCdVvxoRUqw"/>
+  </evaluations>
+  <evaluations xmi:id="_dVJYgKSEEemyCdVvxoRUqw">
+    <qa href="qualityDef.model#_WnY80KMgEemyCdVvxoRUqw"/>
+    <subject xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_Inh7cqDKEemyCdVvxoRUqw"/>
+  </evaluations>
+</qualityecosystem:QualityEcosystemDef>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<qualitymodel:QualityModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:qualitymodel="http://cs.gssi.it/qualitymodel" xmi:id="_UZlogKMgEemyCdVvxoRUqw" author="Ludovico Iovino">
+  <qualityattrs xmi:id="_WnY80KMgEemyCdVvxoRUqw" name=" InformationLoss">
+    <calculatedBy xmi:id="_Y4A7oKMgEemyCdVvxoRUqw" metrics="_hm4JMKMgEemyCdVvxoRUqw _Zo7bMKMgEemyCdVvxoRUqw _lt0JYKMgEemyCdVvxoRUqw"/>
+  </qualityattrs>
+  <qualityattrs xmi:id="_6SxfEKR8EemyCdVvxoRUqw" name="InformationPreserved">
+    <calculatedBy xmi:id="_74Xj4KR8EemyCdVvxoRUqw" metrics="_IBNlAKR9EemyCdVvxoRUqw _9GlDcKR8EemyCdVvxoRUqw _K2aQgKR9EemyCdVvxoRUqw"/>
+  </qualityattrs>
+  <metrics xmi:id="_Zo7bMKMgEemyCdVvxoRUqw" name="Information Loss in terms of instances" metricProvider="getIInfoLoss" library="../IL.eol"/>
+  <metrics xmi:id="_hm4JMKMgEemyCdVvxoRUqw" name="Information Loss in terms of Attributes Values" metricProvider="getAInfoLoss" library="../IL.eol"/>
+  <metrics xmi:id="_lt0JYKMgEemyCdVvxoRUqw" name="Information Loss in terms of References Values" metricProvider="getRInfoLoss" library="../IL.eol"/>
+  <metrics xmi:id="_9GlDcKR8EemyCdVvxoRUqw" name="Information preserved instances" metricProvider="getIInfoProd" library="../IL.eol"/>
+  <metrics xmi:id="_IBNlAKR9EemyCdVvxoRUqw" name="Information preserved attribute values" metricProvider="getAInfoProd" library="../IL.eol"/>
+  <metrics xmi:id="_K2aQgKR9EemyCdVvxoRUqw" name="Information preserved reference association" metricProvider="getRInfoProd" library="../IL.eol"/>
+</qualitymodel:QualityModel>

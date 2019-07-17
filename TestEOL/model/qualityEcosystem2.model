@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdeecosystem="http://cs.gssi.it/mdeecosystem" xmlns:qualityecosystem="http://cs.gssi.it/qualityecosystem">
+  <qualityecosystem:QualityEcosystemDef xmi:id="_ySUWEKPAEemyCdVvxoRUqw">
+    <evaluations xmi:id="_zbAccKPAEemyCdVvxoRUqw">
+      <qa href="qualityDef.model#_WnY80KMgEemyCdVvxoRUqw"/>
+      <subject xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_D1w1kKDKEemyCdVvxoRUqw"/>
+      
+    </evaluations>
+  </qualityecosystem:QualityEcosystemDef>
+  
+</xmi:XMI>

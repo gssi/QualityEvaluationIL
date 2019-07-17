@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<trace:TraceLinkSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http://www.eclipse.org/m2m/atl/emftvm/2011/Trace" defaultSourceElements="//@rules.0/@links.0/@sourceElements.0 //@rules.1/@links.0/@sourceElements.0 //@rules.1/@links.1/@sourceElements.0 //@rules.2/@links.0/@sourceElements.0 //@rules.2/@links.1/@sourceElements.0">
+  <rules rule="List2List">
+    <links>
+      <sourceElements name="s" defaultFor="/">
+        <object href="persons.model#_E7CV0JQ4Eem4pNoILqcxsQ"/>
+      </sourceElements>
+      <targetElements name="t">
+        <object href="t3_out.xmi#/"/>
+      </targetElements>
+    </links>
+  </rules>
+  <rules rule="Person2Client">
+    <links>
+      <sourceElements name="s" defaultFor="/">
+        <object href="persons.model#_F7KWEJQ4Eem4pNoILqcxsQ"/>
+      </sourceElements>
+      <targetElements name="t">
+        <object href="t3_out.xmi#//@clients.0"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="s" defaultFor="/">
+        <object href="persons.model#_HoPi8JQ4Eem4pNoILqcxsQ"/>
+      </sourceElements>
+      <targetElements name="t">
+        <object href="t3_out.xmi#//@clients.1"/>
+      </targetElements>
+    </links>
+  </rules>
+  <rules rule="Card2Badge">
+    <links>
+      <sourceElements name="s" defaultFor="/">
+        <object href="persons.model#_OCzWIJQ5Eem4pNoILqcxsQ"/>
+      </sourceElements>
+      <targetElements name="t">
+        <object href="t3_out.xmi#//@badges.0"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="s" defaultFor="/">
+        <object href="persons.model#_e7H-IJQ5Eem4pNoILqcxsQ"/>
+      </sourceElements>
+      <targetElements name="t">
+        <object href="t3_out.xmi#//@badges.1"/>
+      </targetElements>
+    </links>
+  </rules>
+</trace:TraceLinkSet>

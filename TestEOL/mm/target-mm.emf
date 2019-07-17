@@ -1,0 +1,30 @@
+@namespace(uri="http://cs.gssi.it/targetMM", prefix="targetMM")
+package targetMM;
+
+class ClientList {
+  val Client[*] clients;
+  val Subscription[*] subscriptions;
+  val Badge[*] badges;
+}
+
+class Client {
+  attr String name;
+  val Badge[*] assignedBadge;
+}
+
+class Badge {
+  attr String uid;
+}
+
+class Subscription {
+  ref Client[1] client;
+  attr SubscriptionType type;
+}
+
+enum SubscriptionType {
+  MONTH = 0;
+  TRIMESTER = 1;
+  SEMESTER = 2;
+  YEAR = 3;
+}
+

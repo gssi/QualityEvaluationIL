@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<mdeecosystem:MDEEcosystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdeecosystem="http://cs.gssi.it/mdeecosystem" xmi:id="_rxN3cKDJEemyCdVvxoRUqw" author="Ludovico Iovino">
+  <artifacts xsi:type="mdeecosystem:Metamodel" xmi:id="_uEW-wKDJEemyCdVvxoRUqw" name="sourceMM" nsURI="http://cs.gssi.it/sourceMM"/>
+  <artifacts xsi:type="mdeecosystem:Metamodel" xmi:id="_x7V3YKDJEemyCdVvxoRUqw" name="targetMM" nsURI="http://cs.gssi.it/targetMM"/>
+  <artifacts xsi:type="mdeecosystem:Model" xmi:id="_z-SmkKDJEemyCdVvxoRUqw" name="inmodel" conformance="_uEW-wKDJEemyCdVvxoRUqw"/>
+  <artifacts xsi:type="mdeecosystem:Transformation" xmi:id="_3FXFMKDJEemyCdVvxoRUqw" name="T1" sourceMM="_uEW-wKDJEemyCdVvxoRUqw" targetMM="_x7V3YKDJEemyCdVvxoRUqw" inmodel="_z-SmkKDJEemyCdVvxoRUqw" outmodel="_7-k24KDJEemyCdVvxoRUqw"/>
+  <artifacts xsi:type="mdeecosystem:Model" xmi:id="_7-k24KDJEemyCdVvxoRUqw" name="outT1" conformance="_x7V3YKDJEemyCdVvxoRUqw"/>
+  <artifacts xsi:type="mdeecosystem:TraceModel" xmi:id="_D1w1kKDKEemyCdVvxoRUqw" name="traceT1" inmodel="_z-SmkKDJEemyCdVvxoRUqw" outmodel="_7-k24KDJEemyCdVvxoRUqw"/>
+  <artifacts xsi:type="mdeecosystem:Transformation" xmi:id="_Inh7cKDKEemyCdVvxoRUqw" name="T2" sourceMM="_uEW-wKDJEemyCdVvxoRUqw" targetMM="_x7V3YKDJEemyCdVvxoRUqw" inmodel="_z-SmkKDJEemyCdVvxoRUqw" outmodel="_Inh7caDKEemyCdVvxoRUqw"/>
+  <artifacts xsi:type="mdeecosystem:Model" xmi:id="_Inh7caDKEemyCdVvxoRUqw" name="outT2" conformance="_x7V3YKDJEemyCdVvxoRUqw"/>
+  <artifacts xsi:type="mdeecosystem:TraceModel" xmi:id="_Inh7cqDKEemyCdVvxoRUqw" name="traceT2" inmodel="_z-SmkKDJEemyCdVvxoRUqw" outmodel="_Inh7caDKEemyCdVvxoRUqw"/>
+</mdeecosystem:MDEEcosystem>
