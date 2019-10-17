@@ -78,7 +78,7 @@ var infoProdAT2=getAInfoProd(traceT2,T2).println();
 "#Information preserved by T2 in terms of references set".println();
 var infoProdRT2=getRInfoProd(traceT2,T2).println();
 var infoProdTotT2=infoProdIT2+infoProdAT2+infoProdRT2;
-
+/*
 "============T3 PRODUCED INFO FROM IN MODEL========".println();
 "#Information preserved by T3 in terms of instances".println();
 var infoProdIT3=getIInfoProd(traceT3).println();
@@ -97,7 +97,7 @@ var infoProdAT4=getAInfoProd(traceT4,T4).println();
 var infoProdRT4=getRInfoProd(traceT4,T4).println();
 var infoProdTotT4=infoProdIT4+infoProdAT4+infoProdRT4;
 
-
+*/
 
 "===============INFORMATION PRODUCED===============".println();
 //Information loss
@@ -106,7 +106,7 @@ var T1_IP=((infoProdIT1)+(infoProdAT1)+(infoProdRT1)).println();
 "#Information produced by T2".println();
 var T2_IP=((infoProdIT2)+(infoProdAT2)+(infoProdRT2)).println();
 
-
+/*
 "#Information produced by T3".println();
 var T3_IP=((infoProdIT3)+(infoProdAT3)+(infoProdRT3)).println();
 
@@ -114,7 +114,7 @@ var T3_IP=((infoProdIT3)+(infoProdAT3)+(infoProdRT3)).println();
 "#Information produced by T4".println();
 var T4_IP=((infoProdIT4)+(infoProdAT4)+(infoProdRT4)).println();
 
-
+*/
 "==========INFORMATION LOSS===================".println();
 "#Information loss induced by T1 in terms of instances".println();
 var T1_iIL=getIInfoLoss(traceT1, inmodel).println();
@@ -133,6 +133,7 @@ var T2_AIL=getAInfoLoss(  traceT2,inmodel, T2).println();
 var T2_RIL=getRInfoLoss(  traceT2,inmodel, T2).println();
 "IL induced by T2 is:".println();
 var T2_IL=(T2_iIL+T2_AIL+T2_RIL).println();
+/*
 "==========INFORMATION LOSS===================".println();
 "#Information loss induced by T3 in terms of instances".println();
 var T3_iIL=getIInfoLoss(traceT3, inmodel).println();
@@ -151,3 +152,4 @@ var T4_AIL=getAInfoLoss( traceT4,inmodel, T4).println();
 var T4_RIL=getRInfoLoss( traceT4,inmodel, T4).println();
 "IL induced by T4 is:".println();
 var T4_IL=(T4_iIL+T4_AIL+T4_RIL).println();
+*/

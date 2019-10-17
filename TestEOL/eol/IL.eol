@@ -59,6 +59,7 @@ var num_notfilled=0;
 for (c in classes) { 
 	for (i in _model.getAllOfKind(c.name)) { 
 		for (r in c.eReferences) { 
+		//i.eGet(i.eClass().getEStructuralFeature(r.name)).println();
 			if ( i.eGet(i.eClass().getEStructuralFeature(r.name)).size=0) {
 			//i.eGet(i.eClass().getEStructuralFeature(r.name)).println(r.name);
 				num_notfilled++;
@@ -112,11 +113,15 @@ for (c in sourceMM!EClass.all) {
 
 
 operation getAInfoProd(_trace: Any,trafo: Any) :Real{
+
 var I=0.0;
+
 for (trace in _trace.getAllOfKind("TraceLink").targetElements) { 
 	for (i in trace.object) { 
 		for (a in i.eClass().eAttributes) { 
+		
 			if(i.eGet(i.eClass().getEStructuralFeature(a.name)).isDefined()){
+			
 			//if the attribute value is set then i check if there is an existing binding in the trafo for that rule
 				for (r in trafo.getAllOfKind("Rule").select(r|r.name=trace.targetOf.rule.first().rule)) { 
 				
