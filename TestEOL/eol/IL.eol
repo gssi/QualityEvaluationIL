@@ -92,10 +92,13 @@ operation getIInfoLoss(_trace: Any, inmodel: Any) : Real{
 //get all instances in the input model not cited in the trace
 var I=0;
 var mapped_instances=_trace.getAllOfKind("TraceLink").sourceElements.collect(o|o.object).flatten();
+
 for (c in sourceMM!EClass.all) { 
 
 	for (i in inmodel.getAllOfKind(c.name)) {
-		if(mapped_instances->select(obj|emfTool.ecoreUtil.equals(obj,i)).size()=0){
+	
+	
+		if(mapped_instances->select(obj|emfTool.ecoreUtil.equals(obj,i)).size()==0){
 		
 		
 		I=I+weight_i_produced;
