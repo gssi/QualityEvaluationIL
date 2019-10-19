@@ -117,7 +117,7 @@ var T4_IP=((infoProdIT4)+(infoProdAT4)+(infoProdRT4)).println();
 */
 "==========INFORMATION LOSS===================".println();
 "#Information loss induced by T1 in terms of instances".println();
-var T1_iIL=getIInfoLoss(traceT1, inmodel).println();
+var T1_iIL=getIInfoLoss(traceT1, inmodel, T1).println();
 "#Information loss induced by T1 in terms of attributes".println();
 var T1_AIL=getAInfoLoss( traceT1,inmodel, T1).println();
 "#Information loss induced by T1 in terms of references".println();
@@ -126,7 +126,7 @@ var T1_RIL=getRInfoLoss(traceT1,inmodel, T1).println();
 var T1_IL=(T1_iIL+T1_AIL+T1_RIL).println();
 "==========INFORMATION LOSS===================".println();
 "#Information loss induced by T2 in terms of instances".println();
-var T2_iIL=getIInfoLoss(traceT2, inmodel).println();
+var T2_iIL=getIInfoLoss(traceT2, inmodel, T2).println();
 "#Information loss induced by T2 in terms of attributes".println();
 var T2_AIL=getAInfoLoss(  traceT2,inmodel, T2).println();
 "#Information loss induced by T2 in terms of references".println();
