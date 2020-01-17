@@ -83,6 +83,7 @@ return num_notfilled;
 
 operation getIInfoProd(_trace: Any) : Real{
 var I=0;
+
 var targets=_trace.getAllOfKind("TraceLink").select(l|l.targetElements.size>1);
 
 for (link in targets) { 
@@ -121,11 +122,12 @@ for (c in allclasses) {
 		for(i in instances_inmodel){
 		
 		if(not mapped_instances.includes(i)){
+		
 		//checkTypeBindingLoss(i.eClass, _trace, trafo).println();
 		//if not mapped check if the instance is translated with binding
 			if(checkTypeBindingLoss(i.eClass, _trace, trafo)>0){
 				I=I+	checkTypeBindingLoss(i.eClass, _trace, trafo);
-			
+				
 			}else{		
 				I=I+weight_i_produced;
 			}
