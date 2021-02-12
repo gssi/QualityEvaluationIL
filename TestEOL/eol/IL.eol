@@ -334,3 +334,133 @@ var sourcetracelinks=_trace.getAllOfKind("TraceLink").sourceElements;
 
 return I;
 }
+
+operation getCoverage(inmodel: Any, classes: List<sourceMM!EClass>): Real{
+var modelcoverage : Real =0.0;
+var coverageattrs: Real =0.0;
+var coveragerefs: Real =0.0;
+
+	for (c in getConcreteClasses()) { 
+	var coverage=0.0;
+		if(inmodel.getAllOfType(c.name).size>0){
+		
+		//at least one instance per type should be covered
+			coverage+=weight_i_cov;
+			
+			//c.name.println();
+			coverageattrs = getACoverage(inmodel, c.eStructuralFeatures.select(f|f.isTypeOf(sourceMM!EAttribute)).asSequence());
+			coveragerefs = getRCoverage(inmodel, c.eStructuralFeatures.select(f|f.isTypeOf(sourceMM!EReference)).asSequence());
+			
+		}
+		//class + attr + ref divide by 3
+		modelcoverage+=((coverage+coverageattrs+coveragerefs)/3);
+		
+	}
+	
+
+	return modelcoverage/getConcreteClasses().size;
+	
+	
+}
+
+
+operation getACoverage(inmodel: Any, attrs: Sequence<sourceMM!EAttribute>): Real{
+
+var coverage : Real =0.0;
+
+if(attrs.size>0){
+	for (a in attrs) { 
+	
+		coverage+= a.getAttrCov().booltoint();
+		
+	}
+		return coverage/(weight_a_cov*attrs.size);
+}else{
+	coverage=1.0;
+	return coverage;
+}	
+}
+
+operation getRCoverage(inmodel: Any, refs: Sequence<sourceMM!EReference>): Real {
+
+var coverage : Real =0.0;
+
+if(refs.size>0){
+	for (r in refs) { 
+
+		coverage+=r.getRefCov().booltoint();
+		
+	}
+		return coverage/(weight_r_cov*refs.size);
+}else{
+	coverage=1.0;
+	return coverage;
+}	
+}
+
+
+operation sourceMM!EReference getRefCov(){
+var coverage : Boolean = false;
+//here coverage for references can be custmized
+coverage=(inmodel.getAllOfType(self.eContainingClass.name).select(instance|instance.eGet(instance.eClass().getEStructuralFeature(self.name)).size==self.lowerBound or (instance.eGet(instance.eClass().getEStructuralFeature(self.name)).size<=self.upperBound)).size>1);
+
+return coverage;
+}
+
+operation sourceMM!EAttribute getAttrCov(){
+
+if(self.eType.name=="EString"){
+var coverage : Boolean =false;
+//for the attr of type string increment coverage if the attr is set
+	for(i in inmodel.getAllOfType(self.eContainingClass.name)){
+		if(i.eGet(i.eClass().getEStructuralFeature(self.name)).isDefined()){
+			coverage=true;
+		}
+	}
+	return coverage;
+}
+if(self.eType.name=="EInt"){
+var coverage : Boolean =false;
+//for the attr of type string increment coverage if the attr is set
+	for(i in inmodel.getAllOfType(self.eContainingClass.name)){
+		if(i.eGet(i.eClass().getEStructuralFeature(self.name)).isDefined() ){
+			if(i.eGet(i.eClass().getEStructuralFeature(self.name))>0) coverage=true;
+		}
+
+	}
+	return coverage;
+	
+}
+if(self.eType.name=="EBoolean"){
+	var atleastonetrue=false;
+	var atleastonefalse=false;
+	
+	for(i in inmodel.getAllOfType(self.eContainingClass.name)){
+	
+		if(i.eGet(i.eClass().getEStructuralFeature(self.name)).isDefined() ){
+			if(i.eGet(i.eClass().getEStructuralFeature(self.name))){
+				atleastonetrue=true;
+			}else{
+				atleastonefalse=true;
+			}
+			
+		}
+	}
+return (atleastonetrue and atleastonefalse);
+}
+}
+
+operation Boolean booltoint(){
+
+	if (self==true){
+		return weight_a_cov;
+	}else{
+		return 0.0;
+	}
+}
+
+
+
+operation getConcreteClasses(){
+return sourceMM!EClass.all->select(c|c.isAbstract==false);
+}

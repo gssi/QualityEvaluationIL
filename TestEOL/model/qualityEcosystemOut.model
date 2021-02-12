@@ -69,4 +69,7 @@
       </calculatedMetrics>
     </calculatedBy>
   </evaluations>
+  <evaluations xmi:id="_pGwL0GrpEeqRpPb30GtDqg">
+    <calculatedBy xmi:id="_p7xvUGrpEeqRpPb30GtDqg"/>
+  </evaluations>
 </qualityecosystem:QualityEcosystemDef>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<package:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:package="http://mypack" xmi:id="_WVwx8GRaEeqexupT46vRGA">
+  <classes xsi:type="package:A" xmi:id="_XFp90GRaEeqexupT46vRGA" attrString="mystringvalue" b="_RSqCIGXTEeqECfkaAqSDgA"/>
+  <classes xsi:type="package:A" xmi:id="_cvs_MGUNEeqECfkaAqSDgA" anInt="2" b="_eWoO0GUPEeqECfkaAqSDgA _RSqCIGXTEeqECfkaAqSDgA"/>
+  <classes xsi:type="package:B" xmi:id="_cT3s4GUPEeqECfkaAqSDgA" attrBool="true"/>
+  <classes xsi:type="package:B" xmi:id="_eWoO0GUPEeqECfkaAqSDgA"/>
+  <classes xsi:type="package:B" xmi:id="_RSqCIGXTEeqECfkaAqSDgA"/>
+</package:Root>

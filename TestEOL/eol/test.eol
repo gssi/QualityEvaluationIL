@@ -7,6 +7,10 @@ var  weight_i_produced=1.0;
 var  weight_a_set=0.5;
 var  weight_r_set=0.5;
 
+var  weight_i_cov=1.0;
+var  weight_a_cov=0.5;
+var  weight_r_cov=0.5;
+
 
 //Input model
 "============INPUT MODEL========".println();

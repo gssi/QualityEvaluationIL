@@ -1,0 +1,9 @@
+import "IL.eol";
+
+var emfTool : new Native("org.eclipse.epsilon.emc.emf.tools.EmfTool");
+var  weight_i_cov=1.0;
+var  weight_a_cov=0.5;
+var  weight_r_cov=0.5;
+
+"Coverage of the model inmodel".println();
+var coverage_inmodel=(getCoverage(inmodel, sourceMM!EClass.all)).println();

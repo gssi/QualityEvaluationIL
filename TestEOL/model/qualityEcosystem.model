@@ -12,4 +12,8 @@
     <qa href="qualityDef.model#_WnY80KMgEemyCdVvxoRUqw"/>
     <subject xsi:type="mdeecosystem:TraceModel" href="ecosystem.model#_Inh7cqDKEemyCdVvxoRUqw"/>
   </evaluations>
+  <evaluations xmi:id="_u2C6oGXrEeqZivZZTgVNJw">
+    <qa href="qualityDef.model#_v7swkGXqEeqECfkaAqSDgA"/>
+    <subject xsi:type="mdeecosystem:Model" href="ecosystem.model#_z-SmkKDJEemyCdVvxoRUqw"/>
+  </evaluations>
 </qualityecosystem:QualityEcosystemDef>
